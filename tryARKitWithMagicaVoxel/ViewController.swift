@@ -9,6 +9,8 @@
 import UIKit
 import SceneKit
 import ARKit
+import Zip
+import Alamofire
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
@@ -55,18 +57,34 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let results = sceneView.hitTest(tapPoint, types: .featurePoint)
         guard let hitResult = results.first else { return }
         
-        let node = SCNNode()
-        let idleScene = SCNScene(named: "Samba Dancing.dae", inDirectory: "art.scnassets/Samba Dancing")!
-        
-        for child in idleScene.rootNode.childNodes {
-            node.addChildNode(child)
+        let destination = DownloadRequest.suggestedDownloadDestination(for: .cachesDirectory)
+        Alamofire.download("https://s3-ap-northeast-1.amazonaws.com/miso-lab-c93/henteko/miso-lab-kun.zip", to: destination).response { response in
+            let downloadZipURL = response.destinationURL
+            
+            do {
+                let filePath = try Zip.quickUnzipFile(downloadZipURL!)
+
+                let node = SCNNode()
+                let dir = filePath.appendingPathComponent("miso-lab-kun/miso-lab-kun.scn")
+                let idleScene = try SCNScene.init(url: dir, options: nil)
+
+                let texData = try Data.init(contentsOf: (filePath.appendingPathComponent("miso-lab-kun/miso-lab-kun_tex.png")))
+                let material = SCNMaterial()
+                material.diffuse.contents = UIImage(data: texData)
+
+                for child in idleScene.rootNode.childNodes {
+                    child.geometry?.firstMaterial = material
+                    node.addChildNode(child)
+                }
+
+                node.position = SCNVector3Make(hitResult.worldTransform.columns.3.x,
+                                               hitResult.worldTransform.columns.3.y + 0.1,
+                                               hitResult.worldTransform.columns.3.z)
+                self.sceneView.scene.rootNode.addChildNode(node)
+            } catch let e {
+                print(e)
+            }
         }
-        
-        node.position = SCNVector3Make(hitResult.worldTransform.columns.3.x,
-                                       hitResult.worldTransform.columns.3.y + 0.1,
-                                       hitResult.worldTransform.columns.3.z)
-        node.scale = SCNVector3(0.01, 0.01, 0.01)
-        sceneView.scene.rootNode.addChildNode(node)
     }
 
     // MARK: - ARSCNViewDelegate

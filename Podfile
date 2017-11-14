@@ -7,5 +7,6 @@ target 'tryARKitWithMagicaVoxel' do
 
   # Pods for tryARKitWithMagicaVoxel
   pod 'Zip', '~> 1.0'
+  pod 'Alamofire', '~> 4.5'
 
 end
