@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAC8B3BE3EF81BBECCE8ABF5 /* Pods_tryARKitWithMagicaVoxel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B4C20144434E6452951972 /* Pods_tryARKitWithMagicaVoxel.framework */; };
 		ED03148E1FA8B0B2004C6609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03148D1FA8B0B2004C6609 /* AppDelegate.swift */; };
 		ED0314901FA8B0B2004C6609 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = ED03148F1FA8B0B2004C6609 /* art.scnassets */; };
 		ED0314921FA8B0B2004C6609 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0314911FA8B0B2004C6609 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		012C9241C32F39BD678F0924 /* Pods-tryARKitWithMagicaVoxel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryARKitWithMagicaVoxel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryARKitWithMagicaVoxel/Pods-tryARKitWithMagicaVoxel.debug.xcconfig"; sourceTree = "<group>"; };
+		07B4C20144434E6452951972 /* Pods_tryARKitWithMagicaVoxel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tryARKitWithMagicaVoxel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		351199B3EBC0BAF6F6B85981 /* Pods-tryARKitWithMagicaVoxel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryARKitWithMagicaVoxel.release.xcconfig"; path = "Pods/Target Support Files/Pods-tryARKitWithMagicaVoxel/Pods-tryARKitWithMagicaVoxel.release.xcconfig"; sourceTree = "<group>"; };
 		ED03148A1FA8B0B2004C6609 /* tryARKitWithMagicaVoxel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tryARKitWithMagicaVoxel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED03148D1FA8B0B2004C6609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED03148F1FA8B0B2004C6609 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC8B3BE3EF81BBECCE8ABF5 /* Pods_tryARKitWithMagicaVoxel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16992E9F00114D78BF41FADA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07B4C20144434E6452951972 /* Pods_tryARKitWithMagicaVoxel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E6FDEA8073196A48A9AD4CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				012C9241C32F39BD678F0924 /* Pods-tryARKitWithMagicaVoxel.debug.xcconfig */,
+				351199B3EBC0BAF6F6B85981 /* Pods-tryARKitWithMagicaVoxel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ED0314811FA8B0B2004C6609 = {
 			isa = PBXGroup;
 			children = (
 				ED03148C1FA8B0B2004C6609 /* tryARKitWithMagicaVoxel */,
 				ED03148B1FA8B0B2004C6609 /* Products */,
+				4E6FDEA8073196A48A9AD4CE /* Pods */,
+				16992E9F00114D78BF41FADA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED03149E1FA8B0B2004C6609 /* Build configuration list for PBXNativeTarget "tryARKitWithMagicaVoxel" */;
 			buildPhases = (
+				83A16F25E4F21DC8B5D27726 /* [CP] Check Pods Manifest.lock */,
 				ED0314861FA8B0B2004C6609 /* Sources */,
 				ED0314871FA8B0B2004C6609 /* Frameworks */,
 				ED0314881FA8B0B2004C6609 /* Resources */,
+				86190995435D091F9AECA05D /* [CP] Embed Pods Frameworks */,
+				CA9B797F73136255948852C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,6 +161,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		83A16F25E4F21DC8B5D27726 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tryARKitWithMagicaVoxel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86190995435D091F9AECA05D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-tryARKitWithMagicaVoxel/Pods-tryARKitWithMagicaVoxel-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tryARKitWithMagicaVoxel/Pods-tryARKitWithMagicaVoxel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA9B797F73136255948852C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tryARKitWithMagicaVoxel/Pods-tryARKitWithMagicaVoxel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ED0314861FA8B0B2004C6609 /* Sources */ = {
@@ -276,6 +357,7 @@
 		};
 		ED03149F1FA8B0B2004C6609 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 012C9241C32F39BD678F0924 /* Pods-tryARKitWithMagicaVoxel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +373,7 @@
 		};
 		ED0314A01FA8B0B2004C6609 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 351199B3EBC0BAF6F6B85981 /* Pods-tryARKitWithMagicaVoxel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
