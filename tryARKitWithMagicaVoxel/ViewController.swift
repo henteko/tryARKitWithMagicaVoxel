@@ -22,11 +22,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
+        sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/miso-lab-kun.scn")!
-        
-        // Set the scene to the view
+        let scene = SCNScene()
         sceneView.scene = scene
     }
     
@@ -50,6 +48,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
+    }
+    
+    @IBAction func tap(_ recognizer: UITapGestureRecognizer) {
+        let tapPoint = recognizer.location(in: sceneView)
+        let results = sceneView.hitTest(tapPoint, types: .featurePoint)
+        guard let hitResult = results.first else { return }
+        
+        let node = SCNNode()
+        let idleScene = SCNScene(named: "Samba Dancing.dae", inDirectory: "art.scnassets/Samba Dancing")!
+        
+        for child in idleScene.rootNode.childNodes {
+            node.addChildNode(child)
+        }
+        
+        node.position = SCNVector3Make(hitResult.worldTransform.columns.3.x,
+                                       hitResult.worldTransform.columns.3.y + 0.1,
+                                       hitResult.worldTransform.columns.3.z)
+        node.scale = SCNVector3(0.01, 0.01, 0.01)
+        sceneView.scene.rootNode.addChildNode(node)
     }
 
     // MARK: - ARSCNViewDelegate
